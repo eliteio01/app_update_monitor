@@ -1,5 +1,4 @@
 import 'package:app_update_monitor/app_update_monitor.dart';
-import 'package:app_update_monitor/src/update_dialog.dart';
 import 'package:flutter/material.dart';
 
 void main() {
