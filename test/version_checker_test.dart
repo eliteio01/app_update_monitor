@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:version_checker/src/version_checker.dart';
+import 'package:check_app_version/src/check_app_version.dart';
 
 void main() {
   late VersionChecker versionChecker;
