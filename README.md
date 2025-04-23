@@ -1,0 +1,167 @@
+# Version Checker for Flutter
+
+[![pub package](https://img.shields.io/pub/v/version_checker.svg)](https://pub.dev/packages/version_checker)
+[![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://github.com/yourusername/version_checker/actions/workflows/flutter.yml/badge.svg)](https://github.com/yourusername/version_checker/actions)
+
+A lightweight Flutter package to check for app updates by comparing the installed version with the latest version available in the Apple App Store and Google Play Store.
+
+## Features ✨
+
+- ✅ **Cross-platform support** - Works on both iOS and Android
+- 🔍 **Automatic store detection** - Checks the appropriate store based on platform
+- 🌍 **Region-specific version checking** - Specify country code for regional stores
+- 📊 **Version comparison** - Semantic version comparison (major.minor.patch)
+- 🚀 **Built-in update dialog** - Pre-made customizable update dialog
+- 🔗 **Store links** - Get direct links to your app in both stores
+- 🛡️ **Null safety** - Fully supports sound null safety
+
+## Installation 📦
+
+Add this to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  version_checker: ^1.0.0
+
+
+Then run the following command to install the package:
+
+```bash
+flutter pub get
+```
+
+Make sure to add the necessary permissions in your `AndroidManifest.xml` for Android and `Info.plist` for iOS for network access if needed.
+
+### Android Permissions
+
+In your `AndroidManifest.xml` file, ensure that you have the following permissions:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+### iOS Permissions
+
+In your `Info.plist` file, ensure you have the following permissions:
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+  <key>NSAllowsArbitraryLoads</key>
+  <true/>
+</dict>
+```
+
+---
+
+## Usage
+
+You can use the `version_checker` package to check the version of your app against the versions available in the Apple App Store or Google Play Store.
+
+### Example
+
+```dart
+import 'package:version_checker/version_checker.dart';
+
+void main() async {
+  const googlePlayPackageName = 'com.example.app';
+  const appleId = '123456789';
+
+  final versionChecker = VersionChecker(
+    appleId: appleId, 
+    googlePlayPackageName: googlePlayPackageName
+  );
+
+  final versionInfo = await versionChecker.checkVersion();
+
+  print('Current Version: ${versionInfo.currentVersion}');
+  print('Store Version: ${versionInfo.storeVersion}');
+  print('Should update: ${versionInfo.shouldUpdate}');
+  print('App Store Link: ${versionInfo.appStoreLink}');
+  print('Play Store Link: ${versionInfo.playStoreLink}');
+}
+```
+
+In the above example, replace `googlePlayPackageName` and `appleId` with your app’s package name and Apple ID respectively.
+
+### Output
+
+- `currentVersion`: The version of the app installed on the device.
+- `storeVersion`: The latest version available in the respective app store (App Store or Google Play Store).
+- `shouldUpdate`: A boolean value indicating if the app needs to be updated.
+- `appStoreLink`: The link to the app in the Apple App Store.
+- `playStoreLink`: The link to the app in the Google Play Store.
+
+---
+
+## API Documentation
+
+The `VersionChecker` class provides a simple API to check for the latest app version:
+
+### VersionChecker Constructor
+
+```dart
+VersionChecker({
+  this.appleId,
+  required this.googlePlayPackageName,
+  this.countryCode = 'us',
+});
+```
+
+- `appleId`: The Apple App Store ID of your app (required for iOS).
+- `googlePlayPackageName`: The Google Play package name of your app (required for Android).
+- `countryCode`: The country code used to get the store version, defaults to `'us'`.
+
+### `checkVersion()` Method
+
+```dart
+Future<VersionInfo> checkVersion()
+```
+
+This method checks the current version of your app and compares it with the version in the App Store or Google Play Store.
+
+- **Returns**: `VersionInfo` object that contains the following fields:
+    - `currentVersion`: The current installed version of your app.
+    - `storeVersion`: The latest version available in the app store.
+    - `shouldUpdate`: A boolean indicating whether the app should be updated.
+    - `appStoreLink`: The URL link to your app in the Apple App Store.
+    - `playStoreLink`: The URL link to your app in the Google Play Store.
+
+### `_shouldUpdate()` Method
+
+```dart
+bool _shouldUpdate(String currentVersion, String storeVersion)
+```
+
+This private helper method compares the current version of your app with the store version to determine if an update is required.
+
+---
+
+## Additional Information
+
+### Supported Platforms
+
+- **iOS**: Requires the app to be published on the App Store with a valid Apple ID.
+- **Android**: Requires the app to be published on the Google Play Store with a valid package name.
+
+### Contributing
+
+If you would like to contribute to this package, feel free to fork it and submit a pull request. Contributions are welcome!
+
+To report bugs or request features, please open an issue in the [GitHub repository](https://github.com/your-username/version_checker).
+
+---
+
+## License
+
+This package is open-source and available under the MIT License.
+
+---
+
+### Credits
+
+This package is powered by:
+
+- **http package**: Used to make HTTP requests to the App Store and Google Play Store.
+- **package_info_plus**: Used to retrieve the current app version installed on the device.
