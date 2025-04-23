@@ -4,7 +4,8 @@ version: 1.0.0
 homepage: "https://github.com/eliteio01/app_update_monitor"  # Replace with actual homepage
 
 environment:
-  sdk: ">=3.6.1 <4.0.0"
+#  sdk: ">=3.6.1 <4.0.0"
+  sdk: ">=3.5.4 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

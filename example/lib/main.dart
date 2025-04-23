@@ -1,5 +1,5 @@
-import 'package:app_update_monitor/version_checker.dart';
-import 'package:app_update_monitor/update_dialog.dart';
+import 'package:app_update_monitor/app_update_monitor.dart';
+import 'package:app_update_monitor/src/update_dialog.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
   Future<void> checkForUpdates(BuildContext context) async {
     final versionChecker = VersionChecker(
       appleId: '123456789', // Replace with your Apple ID
-      googlePlayPackageName: 'com.example.app', // Replace with your package name
+      googlePlayPackageName:
+          'com.example.app', // Replace with your package name
     );
 
     try {

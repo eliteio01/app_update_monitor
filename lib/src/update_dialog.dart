@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'version_info.dart';
+
+import '../model/version_info.dart';
 
 class UpdateDialog extends StatelessWidget {
   final VersionInfo versionInfo;
@@ -16,7 +17,8 @@ class UpdateDialog extends StatelessWidget {
     required this.versionInfo,
     this.mandatoryUpdate = false,
     this.title = 'Update Available',
-    this.description = 'A new version of the app is available. Please update to continue.',
+    this.description =
+        'A new version of the app is available. Please update to continue.',
     this.updateButtonText = 'Update Now',
     this.laterButtonText,
     this.onLater,

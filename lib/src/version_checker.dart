@@ -1,8 +1,12 @@
 import 'package:package_info_plus/package_info_plus.dart';
-import 'version_info.dart';
+
+import '../model/version_info.dart';
 import 'store_services.dart';
 
-
+export '../model/version_info.dart';
+export 'store_services.dart';
+// Export core files
+export 'version_checker.dart';
 
 class VersionChecker {
   final String? appleId;
