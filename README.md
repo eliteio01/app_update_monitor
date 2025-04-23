@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://github.com/yourusername/version_checker/actions/workflows/flutter.yml/badge.svg)](https://github.com/yourusername/version_checker/actions)
 
-A lightweight Flutter package to check for app updates by comparing the installed version with the latest version available in the Apple App Store and Google Play Store.
+A lightweight Flutter package that effortlessly checks for app updates by comparing the installed version with the latest version available on the Apple App Store and Google Play Store.
 
 ## Features ✨
 
