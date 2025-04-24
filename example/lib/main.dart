@@ -1,5 +1,5 @@
-import 'package:app_update_monitor/src/version_checker.dart';
-import 'package:app_update_monitor/widgets/update_dialog.dart';
+import 'package:app_update_monitor/version_checker.dart';
+import 'package:app_update_monitor/update_dialog.dart';
 import 'package:flutter/material.dart';
 
 void main() {

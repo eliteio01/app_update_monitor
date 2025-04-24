@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../models/version_info.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'version_info.dart';
 
 class UpdateDialog extends StatelessWidget {
   final VersionInfo versionInfo;
@@ -22,11 +22,30 @@ class UpdateDialog extends StatelessWidget {
     this.onLater,
   });
 
+  Future<void> _launchStoreUrl(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(
+        uri,
+        mode: LaunchMode.externalApplication,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(title),
-      content: Text(description),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(description),
+          const SizedBox(height: 8),
+          Text('Current version: ${versionInfo.currentVersion}'),
+          Text('Latest version: ${versionInfo.storeVersion}'),
+        ],
+      ),
       actions: [
         if (!mandatoryUpdate && laterButtonText != null)
           TextButton(
@@ -36,9 +55,12 @@ class UpdateDialog extends StatelessWidget {
         TextButton(
           onPressed: () {
             if (versionInfo.playStoreLink != null) {
-              // Open play store
+              _launchStoreUrl(versionInfo.playStoreLink!);
             } else if (versionInfo.appStoreLink != null) {
-              // Open app store
+              _launchStoreUrl(versionInfo.appStoreLink!);
+            }
+            if (mandatoryUpdate) {
+              Navigator.pop(context);
             }
           },
           child: Text(updateButtonText),

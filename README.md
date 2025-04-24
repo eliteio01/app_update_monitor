@@ -2,7 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/app_update_monitor.svg)](https://pub.dev/packages/app_update_monitor)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/yourusername/app_update_monitor/actions/workflows/flutter.yml/badge.svg)](https://github.com/yourusername/app_update_monitor/actions)
+[![Build Status](https://github.com/eliteio01/app_update_monitor/actions/workflows/flutter.yml/badge.svg)](https://github.com/eliteio01/app_update_monitor/actions)
 
 A lightweight Flutter package that effortlessly checks for app updates by comparing the installed version with the latest version available on the Apple App Store and Google Play Store.
 
@@ -159,9 +159,12 @@ This package is open-source and available under the MIT License.
 
 ---
 
-### Credits
+## Powered By ⚡
 
-This package is powered by:
+This package leverages these amazing packages:
 
-- **http package**: Used to make HTTP requests to the App Store and Google Play Store.
-- **package_info_plus**: Used to retrieve the current app version installed on the device.
+- [**http**](https://pub.dev/packages/http): For making HTTP requests to the App Store and Google Play Store APIs
+- [**package_info_plus**](https://pub.dev/packages/package_info_plus): For retrieving the current app version installed on the device
+- [**url_launcher**](https://pub.dev/packages/url_launcher): For opening store links directly in the native app stores
+
+We're grateful to the maintainers of these packages for their excellent work.

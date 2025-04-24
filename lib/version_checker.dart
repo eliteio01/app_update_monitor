@@ -1,5 +1,5 @@
 import 'package:package_info_plus/package_info_plus.dart';
-import '../models/version_info.dart';
+import 'version_info.dart';
 import 'store_services.dart';
 
 
