@@ -6,17 +6,25 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  Future<void> checkForUpdates(BuildContext context) async {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Future<void> checkForUpdates() async {
     final versionChecker = VersionChecker(
-      appleId: '123456789', // Replace with your Apple ID
-      googlePlayPackageName: 'com.example.app', // Replace with your package name
+      appleId: '123456789',
+      googlePlayPackageName: 'com.example.app',
     );
 
     try {
       final versionInfo = await versionChecker.checkVersion();
+
+      if (!mounted) return;
+
       if (versionInfo.shouldUpdate) {
         showDialog(
           context: context,
@@ -24,6 +32,7 @@ class MyApp extends StatelessWidget {
         );
       }
     } catch (e) {
+      if (!mounted) return; 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error checking version: $e')),
       );
@@ -37,7 +46,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(title: const Text('Version Checker Example')),
         body: Center(
           child: ElevatedButton(
-            onPressed: () => checkForUpdates(context),
+            onPressed: checkForUpdates,
             child: const Text('Check for Updates'),
           ),
         ),
