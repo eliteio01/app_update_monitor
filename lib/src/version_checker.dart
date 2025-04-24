@@ -36,6 +36,7 @@ class VersionChecker {
         googlePlayPackageName,
         countryCode: countryCode,
       );
+
       storeVersion ??= playStoreInfo.version;
       playStoreLink = playStoreInfo.url;
     } catch (e) {

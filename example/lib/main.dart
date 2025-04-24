@@ -5,18 +5,29 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: const HomePage(),
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  Future<void> checkForUpdates() async {
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  Future<void> checkForUpdates(BuildContext context) async {
     final versionChecker = VersionChecker(
-      appleId: '123456789',
-      googlePlayPackageName: 'com.example.app',
+      appleId: '6741027414',
+      googlePlayPackageName: 'com.etech.icpaypoint',
     );
 
     try {
@@ -27,7 +38,11 @@ class _MyAppState extends State<MyApp> {
       if (versionInfo.shouldUpdate) {
         showDialog(
           context: context,
-          builder: (_) => UpdateDialog(versionInfo: versionInfo),
+          builder: (_) => UpdateDialog(
+            versionInfo: versionInfo,
+            mandatoryUpdate: false,
+            laterButtonText: 'Update later',
+          ),
         );
       }
     } catch (e) {
@@ -40,12 +55,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Version Checker Example')),
-        body: Center(
-          child: ElevatedButton(
-            onPressed: checkForUpdates,
+    return Scaffold(
+      appBar: AppBar(title: const Text('Version Checker Example')),
+      body: Center(
+        child: Builder(
+          builder: (innerContext) => ElevatedButton(
+            onPressed: () => checkForUpdates(innerContext),
             child: const Text('Check for Updates'),
           ),
         ),

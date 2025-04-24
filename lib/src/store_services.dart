@@ -1,11 +1,12 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 class StoreServices {
   static Future<({String version, String url})> getAppleStoreVersion(
-      String appleId, {
-        String countryCode = 'us',
-      }) async {
+    String appleId, {
+    String countryCode = 'us',
+  }) async {
     final uri = Uri.https(
       'itunes.apple.com',
       '/lookup',
@@ -28,36 +29,40 @@ class StoreServices {
   }
 
   static Future<({String version, String url})> getGooglePlayVersion(
-      String packageName, {
-        String countryCode = 'us',
-      }) async {
+    String packageName, {
+    String countryCode = 'us',
+  }) async {
+    final apiKey = '5436a81086msh2edecfae99b6505p1cf689jsn00f0b8f42549';
+
     final uri = Uri.https(
-      'play.google.com',
-      '/store/apps/details',
-      {'id': packageName, 'hl': 'en', 'gl': countryCode},
+      'google-play-store-scraper-api.p.rapidapi.com',
+      '/app-details',
     );
 
-    final response = await http.get(uri);
+    final body = json.encode({
+      'language': 'en',
+      'country': countryCode,
+      'appID': packageName,
+    });
+
+    final response = await http.post(
+      uri,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-rapidapi-host': 'google-play-store-scraper-api.p.rapidapi.com',
+        'x-rapidapi-key': apiKey,
+      },
+      body: body,
+    );
+
     if (response.statusCode != 200) {
       throw Exception('Failed to fetch Play Store version');
     }
+    final data = json.decode(response.body);
+    print(data['data']['version']);
 
-    final version = _parseGooglePlayVersion(response.body);
+    final version = data['data']['version'] as String;
     final url = 'https://play.google.com/store/apps/details?id=$packageName';
     return (version: version, url: url);
-  }
-
-  static String _parseGooglePlayVersion(String html) {
-    const versionStart =
-        'Current Version</div><span class="htlgb"><div class="IQ1z0d"><span class="htlgb">';
-    const versionEnd = '</span></div></span>';
-
-    final startIndex = html.indexOf(versionStart);
-    if (startIndex == -1) {
-      throw Exception('Version not found in Play Store page');
-    }
-
-    final endIndex = html.indexOf(versionEnd, startIndex + versionStart.length);
-    return html.substring(startIndex + versionStart.length, endIndex);
   }
 }

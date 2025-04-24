@@ -22,7 +22,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  app_update_monitor: ^1.0.0
+  app_update_monitor: ^1.0.1
 
 
 Then run the following command to install the package:
@@ -149,7 +149,7 @@ This private helper method compares the current version of your app with the sto
 
 If you would like to contribute to this package, feel free to fork it and submit a pull request. Contributions are welcome!
 
-To report bugs or request features, please open an issue in the [GitHub repository](https://github.com/your-username/app_update_monitor).
+To report bugs or request features, please open an issue in the [GitHub repository](https://github.com/eliteio01/app_update_monitor).
 
 ---
 

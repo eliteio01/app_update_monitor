@@ -1,9 +1,9 @@
-## 1.0.0
+## 1.0.1
 
 
 # Changelog
 
-### 1.0.0 (2025-04-23)
+### 1.0.1 (2025-04-23)
 
 *   **Initial release** of the `app_update_monitor` package.
 
