@@ -1,11 +1,11 @@
-## 1.0.1
+## 1.0.0
 
 
 # Changelog
 
 ### 1.0.0 (2025-04-23)
 
-*   **Initial release** of the `check_app_version` package.
+*   **Initial release** of the `app_update_monitor` package.
 
 *   Allows comparison of the current app version with the versions available in the Apple App Store (iOS) and Google Play Store (Android).
 

@@ -1,8 +1,8 @@
 # Version Checker for Flutter
 
-[![pub package](https://img.shields.io/pub/v/check_app_version.svg)](https://pub.dev/packages/check_app_version)
+[![pub package](https://img.shields.io/pub/v/app_update_monitor.svg)](https://pub.dev/packages/app_update_monitor)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/yourusername/check_app_version/actions/workflows/flutter.yml/badge.svg)](https://github.com/yourusername/check_app_version/actions)
+[![Build Status](https://github.com/yourusername/app_update_monitor/actions/workflows/flutter.yml/badge.svg)](https://github.com/yourusername/app_update_monitor/actions)
 
 A lightweight Flutter package that effortlessly checks for app updates by comparing the installed version with the latest version available on the Apple App Store and Google Play Store.
 
@@ -22,7 +22,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  check_app_version: ^1.0.0
+  app_update_monitor: ^1.0.0
 
 
 Then run the following command to install the package:
@@ -57,12 +57,12 @@ In your `Info.plist` file, ensure you have the following permissions:
 
 ## Usage
 
-You can use the `check_app_version` package to check the version of your app against the versions available in the Apple App Store or Google Play Store.
+You can use the `app_update_monitor` package to check the version of your app against the versions available in the Apple App Store or Google Play Store.
 
 ### Example
 
 ```dart
-import 'package:check_app_version/check_app_version.dart';
+import 'package:app_update_monitor/app_update_monitor.dart';
 
 void main() async {
   const googlePlayPackageName = 'com.example.app';
@@ -149,7 +149,7 @@ This private helper method compares the current version of your app with the sto
 
 If you would like to contribute to this package, feel free to fork it and submit a pull request. Contributions are welcome!
 
-To report bugs or request features, please open an issue in the [GitHub repository](https://github.com/your-username/check_app_version).
+To report bugs or request features, please open an issue in the [GitHub repository](https://github.com/your-username/app_update_monitor).
 
 ---
 

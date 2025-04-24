@@ -1,7 +1,7 @@
-name: check_app_version
+name: app_update_monitor
 description: "A lightweight Flutter package that effortlessly checks for app updates by comparing the installed version with the latest version available on the Apple App Store and Google Play Store."
-version: 1.0.1
-homepage: "https://github.com/eliteio01/check_app_version"  # Replace with actual homepage
+version: 1.0.0
+homepage: "https://github.com/eliteio01/app_update_monitor"  # Replace with actual homepage
 
 environment:
   sdk: ">=3.6.1 <4.0.0"

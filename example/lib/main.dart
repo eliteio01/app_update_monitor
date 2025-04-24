@@ -1,6 +1,6 @@
-import 'package:check_app_version/src/version_checker.dart';
+import 'package:app_update_monitor/src/version_checker.dart';
+import 'package:app_update_monitor/widgets/update_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:check_app_version/widgets/update_dialog.dart';
 
 void main() {
   runApp(const MyApp());

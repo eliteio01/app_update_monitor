@@ -1,4 +1,4 @@
-import 'package:check_app_version/src/version_checker.dart';
+import 'package:app_update_monitor/src/version_checker.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
