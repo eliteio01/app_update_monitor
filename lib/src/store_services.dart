@@ -59,7 +59,7 @@ class StoreServices {
       throw Exception('Failed to fetch Play Store version');
     }
     final data = json.decode(response.body);
-    print(data['data']['version']);
+    // print(data['data']['version']);
 
     final version = data['data']['version'] as String;
     final url = 'https://play.google.com/store/apps/details?id=$packageName';

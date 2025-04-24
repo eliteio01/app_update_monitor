@@ -26,14 +26,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Future<void> checkForUpdates(BuildContext context) async {
     final versionChecker = VersionChecker(
-      appleId: '6741027414',
-      googlePlayPackageName: 'com.etech.icpaypoint',
+      appleId: '1234567',
+      googlePlayPackageName: 'com.example.app',
     );
 
     try {
       final versionInfo = await versionChecker.checkVersion();
 
-      if (!mounted) return;
+      if (!context.mounted) return;
 
       if (versionInfo.shouldUpdate) {
         showDialog(
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
         );
       }
     } catch (e) {
-      if (!mounted) return;
+      if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error checking version: $e')),
       );

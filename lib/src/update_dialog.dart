@@ -56,7 +56,7 @@ class UpdateDialog extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.blue.withOpacity(0.2),
+                    color: Colors.blue.withAlpha((0.2 * 255).toInt()),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
@@ -135,7 +135,7 @@ class UpdateDialog extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     elevation: 2,
-                    shadowColor: Colors.blue.withOpacity(0.3),
+                    shadowColor: Colors.blue.withAlpha((0.2 * 255).toInt()),
                   ),
                   child: Text(
                     updateButtonText,
