@@ -2,7 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/app_update_monitor.svg)](https://pub.dev/packages/app_update_monitor)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/eliteio01/app_update_monitor/actions/workflows/flutter.yml/badge.svg)](https://github.com/eliteio01/app_update_monitor/actions)
+[![Build Status](https://github.com/eliteio01/app_update_monitor/actions/workflows/dart.yml/badge.svg)](https://github.com/eliteio01/app_update_monitor/actions)
 
 A lightweight Flutter package that effortlessly checks for app updates by comparing the installed version with the latest version available on the Apple App Store and Google Play Store.
 
